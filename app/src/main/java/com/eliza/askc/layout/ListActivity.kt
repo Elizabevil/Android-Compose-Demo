@@ -27,7 +27,6 @@ class ListActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 //        setContentView()
         setContent {
-
             ListUser(userList = ListData.userList)
         }
     }
