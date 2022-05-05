@@ -5,24 +5,18 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.layout.AlignmentLine
-import androidx.compose.ui.modifier.modifierLocalConsumer
-import androidx.compose.ui.modifier.modifierLocalOf
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.eliza.layout.activity.ColumnActivity
+import com.eliza.layout.coms.HelloContent
 import com.eliza.layout.ui.theme.AskcTheme
 
 class MainActivity : ComponentActivity() {
@@ -36,13 +30,19 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting("Android")
-                    BtnToActivity(context, ColumnActivity::class.java)
+//                    MessageCard(Message("张三", "你猜猜看"))
+//                    Conversation(MessagesData.Msgs)
+                    HelloContent()
+
                 }
             }
         }
     }
 }
+
+/*
+* Material Design 是围绕三大要素构建的：Color、Typography、Shape。
+* */
 
 @Composable
 fun BtnToActivity(context: Context, activity: Class<*>) {
@@ -59,15 +59,23 @@ fun BtnToActivity(context: Context, activity: Class<*>) {
 
 }
 
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
+@Preview(
+    name = "Light Mode",
+    showBackground = true,
+)
+/*
+@Preview(
+    name = "Dark Mode",
+    uiMode = Configuration.UI_MODE_NIGHT_YES,
+    showBackground = true,
+)
+*/
 
-@Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
     AskcTheme {
-        Greeting("Android")
+//        Conversation(MessagesData.Msgs)
+        HelloContent()
     }
 }
+
