@@ -8,6 +8,12 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+
+/**
+ * https://developer.android.google.cn/jetpack/compose/state?hl=zh-cn
+ */
+
+///建议您使用可观察的数据存储器（如 State<List<T>>）和不可变的 listOf()，而不是使用不可观察的可变对象。
 /*
 * 其他受支持的状态类型
 Jetpack Compose 并不要求您使用 MutableState<T> 存储状态。
