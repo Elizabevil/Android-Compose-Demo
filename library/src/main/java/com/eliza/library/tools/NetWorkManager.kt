@@ -6,7 +6,6 @@ import android.net.*
 import android.net.wifi.WifiManager
 import android.os.Build
 import android.telephony.TelephonyManager
-import android.util.Log
 import androidx.annotation.RequiresApi
 
 object NetWorkManager {
@@ -51,11 +50,11 @@ object NetWorkManager {
         var isMobileConn: Boolean = false
         val isGet = PermissionUtils.requestPermissions(context,
             arrayOf(Manifest.permission.ACCESS_NETWORK_STATE))
-        Tools.ToastTools(context, "获取网络权限:$isGet")
+        InfoTools.ToastTools(context, "获取网络权限:$isGet")
         //获取当前活跃的网络数据信息，该方法需要申请系统 ACCESS_NETWORK_STATE 权限
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             connMgr.getNetworkInfo(ConnectivityManager.TYPE_WIFI)?.state?.let {
-                Tools.ToastTools(context,
+                InfoTools.ToastTools(context,
                     it)
             }
 
@@ -66,14 +65,14 @@ object NetWorkManager {
         val wifiManager = getWifiManager(context)
         if (isEnable) {// 开启wifi
             if (!wifiManager.isWifiEnabled) {
-                Tools.LogTools(context::class.java.name, "开启wifi");
+                InfoTools.LogTools(context::class.java.name, "开启wifi");
                 wifiManager.isWifiEnabled = true;
 
             }
         } else {
             // 关闭 wifi
             if (wifiManager.isWifiEnabled) {
-                Tools.LogTools(context::class.java.name, "关闭wifi");
+                InfoTools.LogTools(context::class.java.name, "关闭wifi");
                 wifiManager.isWifiEnabled = false;
 
             }

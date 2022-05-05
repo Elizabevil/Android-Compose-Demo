@@ -12,7 +12,7 @@ import java.util.logging.Level
  * @Time    : 4/2/22
  * @Software: Android Studio
  */
-object Tools {
+object InfoTools {
     @JvmStatic
     fun LogTools(TAG: Any, info: Any, level: Int? = null) {
         level ?: Log.d(TAG.toString(), info.toString())

@@ -8,7 +8,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 
 object PermissionUtils {
-    var REQUEST_CODE = 2021
+    var REQUEST_CODE = 2022 //任意标识
 
     /**
      * 权限检查
@@ -18,8 +18,10 @@ object PermissionUtils {
      */
     fun requestPermissions(ct: Context, permissions: Array<String>): Boolean {
         for (permission in permissions) {
-            if (ContextCompat.checkSelfPermission(ct,
-                    permission) != PackageManager.PERMISSION_GRANTED
+            if (ContextCompat.checkSelfPermission(
+                    ct,
+                    permission
+                ) != PackageManager.PERMISSION_GRANTED
             ) {
                 //申请权限 参数分别是 上下文、权限集合(String)、请求码
                 ActivityCompat.requestPermissions((ct as Activity), permissions, REQUEST_CODE)
@@ -29,16 +31,21 @@ object PermissionUtils {
         return true
     }
 
+    /**
+     * Is get permissions
+     * 是否获取 某权限
+     * @param ct 当前Activity
+     * @param permissions 需要检查的权限
+     */
     fun isGetPermissions(ct: Context, permissions: Array<String>) {
         for (i in permissions) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 if (ct.checkSelfPermission(i) == PackageManager.PERMISSION_GRANTED) {
-                    Tools.LogTools(ct.packageName, "HAVE::$i")
+                    InfoTools.LogTools(ct.packageName, "HAVE::$i")
                 } else {
-                    Tools.LogTools(ct.packageName, "NO::$i", 2)
+                    InfoTools.LogTools(ct.packageName, "NO::$i", 2)
                 }
             }
         }
-
     }
 }
