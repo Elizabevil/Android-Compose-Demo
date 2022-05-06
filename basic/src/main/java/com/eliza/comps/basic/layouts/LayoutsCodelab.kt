@@ -161,6 +161,7 @@ fun StaggeredGrid(
         // Set the size of the parent layout
         layout(width, height) {
             // x co-ord we have placed up to, per row
+            // 每列 元素的 x 坐标放在一个数组里
             val rowX = IntArray(rows) { 0 }
 
             placeables.forEachIndexed { index, placeable ->
