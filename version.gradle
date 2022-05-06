@@ -369,7 +369,6 @@ class Depends {
                 "$implementation_v com.squareup.retrofit2:converter-gson:$retrofit_version",
                 // https://mvnrepository.com/artifact/com.squareup.okhttp3/logging-interceptor
                 "$implementation_v com.squareup.okhttp3:logging-interceptor:$okhttp_version",
-
                 // https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp
                 "$implementation_v com.squareup.okhttp3:okhttp:$okhttp_version",
                 "$implementation_v com.squareup.okhttp3:okhttp-urlconnection:$okhttp_version"
