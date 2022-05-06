@@ -53,52 +53,11 @@ fun ConstraintLayoutContent() {
     }
 }
 
-/**
- * Decoupled constraint layout
- * 解耦合--》组件约束关系 在外面定义
- */
-@Composable
-fun DecoupledConstraintLayout() {
-    BoxWithConstraints {
-        val constraints = if (maxWidth < maxHeight) {
-            decoupledConstraints(margin = 1.dp) // 纵向 竖屏Portrait constraints
-        } else {
-            decoupledConstraints(margin = 200.dp) // Landscape constraints
-        }
-
-        ConstraintLayout(constraints) {
-            Button(
-                onClick = { /* Do something */ },
-                modifier = Modifier.layoutId("button")
-            ) {
-                Text("Button")
-            }
-
-            Text("Text", Modifier.layoutId("text"))
-        }
-    }
-}
 
 /**
- * Decoupled constraints
- * 声明函数，通过传递 参数 实现动态布局
- * @param margin
- * @return
+ * Barrier
+ * Constraint layout content example2
  */
-private fun decoupledConstraints(margin: Dp): ConstraintSet {
-    return ConstraintSet {
-        val button = createRefFor("button")
-        val text = createRefFor("text")
-
-        constrain(button) {
-            top.linkTo(parent.top, margin = margin)
-        }
-        constrain(text) {
-            top.linkTo(button.bottom, margin)
-        }
-    }
-}
-
 @Composable
 fun ConstraintLayoutContentExample2() {
     ConstraintLayout {
@@ -214,6 +173,53 @@ fun LargeConstraintLayoutPreview() {
     }
 }
 
+
+/**
+ * Decoupled constraints
+ * 声明函数，通过传递 参数 实现动态布局
+ * @param margin
+ * @return
+ */
+private fun decoupledConstraints(margin: Dp): ConstraintSet {
+    return ConstraintSet {
+        val button = createRefFor("button")
+        val text = createRefFor("text")
+
+        constrain(button) {
+            top.linkTo(parent.top, margin = margin)
+        }
+        constrain(text) {
+            top.linkTo(button.bottom, margin)
+        }
+    }
+}
+
+/**
+ * 动态适配
+ * Decoupled constraint layout
+ * 解耦合--》组件约束关系 在外面定义
+ */
+@Composable
+fun DecoupledConstraintLayout() {
+    BoxWithConstraints {
+        val constraints = if (maxWidth < maxHeight) {
+            decoupledConstraints(margin = 1.dp) // 纵向 竖屏Portrait constraints
+        } else {
+            decoupledConstraints(margin = 200.dp) // Landscape constraints
+        }
+
+        ConstraintLayout(constraints) {
+            Button(
+                onClick = { /* Do something */ },
+                modifier = Modifier.layoutId("button")
+            ) {
+                Text("Button")
+            }
+
+            Text("Text", Modifier.layoutId("text"))
+        }
+    }
+}
 
 @Preview
 @Composable
