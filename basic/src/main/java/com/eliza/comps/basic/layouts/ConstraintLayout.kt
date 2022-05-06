@@ -52,6 +52,10 @@ fun ConstraintLayoutContent() {
     }
 }
 
+/**
+ * Decoupled constraint layout
+ * 解耦合
+ */
 @Composable
 fun DecoupledConstraintLayout() {
     BoxWithConstraints {
@@ -74,6 +78,12 @@ fun DecoupledConstraintLayout() {
     }
 }
 
+/**
+ * Decoupled constraints
+ * 声明函数，通过传递 参数 实现动态布局
+ * @param margin
+ * @return
+ */
 private fun decoupledConstraints(margin: Dp): ConstraintSet {
     return ConstraintSet {
         val button = createRefFor("button")
@@ -173,6 +183,7 @@ fun LargeConstraintLayoutPreview() {
         LargeConstraintLayout()
     }
 }
+
 
 @Preview
 @Composable
