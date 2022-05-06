@@ -18,6 +18,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.eliza.comps.basic.ui.theme.AskcTheme
 
+/*
+* Compose只测量子元素一次，测量两次会引发运行时异常。但是，有时在测量
+        子元素之前，我们需要一些有关子元素的信息。
+    Intrinsics允许您在实际测量之前查询子项。
+        ●(min|max)IntrinsicWidth: 鉴于此高度，您可以正确绘制内容的最小/最大宽度是多少。
+        ●(min|max)IntrinsicHeight: 鉴于此宽度，您可以正确绘制内容的最小/最大高度是多少。
+* */
 @Composable
 fun TwoTexts(modifier: Modifier = Modifier, text1: String, text2: String) {
     Row(modifier = modifier.height(IntrinsicSize.Min)) {//容器最小值，刚好包裹内部组件 （warp）
