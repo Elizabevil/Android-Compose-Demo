@@ -30,6 +30,7 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
+
 rootProject.name = "Askc"
 include ':app'
 include ':library'
