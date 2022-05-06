@@ -53,6 +53,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.ImagePainter
 import coil.compose.rememberImagePainter
+import com.google.accompanist.insets.statusBarsPadding
+import com.google.accompanist.insets.systemBarsPadding
 import com.google.android.material.composethemeadapter.MdcTheme
 import com.google.samples.apps.sunflower.R
 import com.google.samples.apps.sunflower.compose.Dimens
@@ -312,7 +314,7 @@ private fun PlantDetailsToolbar(
 ) {
     Surface {
         TopAppBar(
-//            modifier = modifier.statusBarsPadding(),
+            modifier = modifier.statusBarsPadding(),
             backgroundColor = MaterialTheme.colors.surface
         ) {
             IconButton(
@@ -360,7 +362,7 @@ private fun PlantHeaderActions(
     Row(
         modifier = modifier
             .fillMaxSize()
-//            .systemBarsPadding()
+            .systemBarsPadding()
             .padding(top = Dimens.ToolbarIconPadding),
         horizontalArrangement = Arrangement.SpaceBetween
     ) {

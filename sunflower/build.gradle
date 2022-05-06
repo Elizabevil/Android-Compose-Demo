@@ -1,21 +1,21 @@
-
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'dagger.hilt.android.plugin'
     id 'kotlin-kapt'
 //    id 'androidx.navigation.safeargs'
-    id 'androidx.navigation.safeargs.kotlin'
+
 }
 android {
     compileSdk 32
-
     defaultConfig {
         applicationId "com.google.samples.apps.sunflower"
         minSdk 21
         targetSdk 32
         versionCode 1
-        versionName "0.1.6"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        versionName "1.0"
+        testInstrumentationRunner "com.google.samples.apps.sunflower.utilities.MainTestRunner"
 
         vectorDrawables {
             useSupportLibrary true
@@ -24,7 +24,7 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
     compileOptions {
@@ -32,23 +32,22 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = "1.8"
-        freeCompilerArgs = ['-Xjvm-default=compatibility']
-        useIR = true
+        jvmTarget = '1.8'
     }
     buildFeatures {
         dataBinding true
         compose true
     }
+
     composeOptions {
         kotlinCompilerExtensionVersion compose_version
     }
     packagingOptions {
-        // Multiple dependency bring these files in. Exclude them to enable
-        // our test APK to build (has no effect on our AARs)
-        excludes += "/META-INF/AL2.0"
-        excludes += "/META-INF/LGPL2.1"
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
     }
+
 }
 
 dependencies {
@@ -68,17 +67,16 @@ dependencies {
             dep.room(),
             dep.recyclerview(),
             dep.work(),
-
             dep.nav(),
             dep.core(),
             dep.ImgPicasso(),
             dep.ImgGlide(),
             dep.okHttp3(),
             dep.jsonTools(),
-//
             dep.camerax(),
             dep.compose(),
-//            dep.paging(),
+            dep.paging(),
+            dep.dagger(),
     ])
 
     implementation obj.implementationList
