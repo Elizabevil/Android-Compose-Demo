@@ -19,6 +19,10 @@ import com.eliza.comps.basic.R
 import com.eliza.comps.basic.ui.theme.AskcTheme
 import kotlin.math.max
 
+/*
+ *  B站动脑学院讲解  https://www.bilibili.com/video/BV1ob4y1a7ad?p=21&spm_id_from=pageDriver
+ */
+
 val topics = listOf(
     "Arts & Crafts 1", "Beauty 2", "Books 3", "Business 4", "Comics 5", "Culinary 6",
     "Design 7", "Fashion 8", "Film 8", "History 9", "Maths 10", "Music 11", "People 12",
