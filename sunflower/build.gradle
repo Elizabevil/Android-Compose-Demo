@@ -20,7 +20,15 @@ android {
         vectorDrawables {
             useSupportLibrary true
         }
+        buildConfigField "String", "UNSPLASH_ACCESS_KEY", "\"" + getUnsplashAccess() + "\""
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments["dagger.hilt.disableModulesHaveInstallInCheck"] = "true"
+            }
+        }
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -91,4 +99,8 @@ dependencies {
 //    obj.kspList
 //    obj.logShow(dep.Kotlin())
 //    obj.logShow(obj.runtimeOnlyList())
+}
+
+def getUnsplashAccess() {
+    return project.findProperty("unsplash_access_key")
 }
