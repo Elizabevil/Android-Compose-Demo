@@ -33,13 +33,30 @@ class Depends {
                 // For loading and tinting drawables on older versions of the platform,
                 "$implementation_v androidx.appcompat:appcompat-resources:$appcompat_version",
                 "$implementation_v com.google.android.material:material:1.5.0",
-                "$testImplementation_v junit:junit:4.13.2",
-                "$androidTestImplementation_v androidx.test.ext:junit:1.1.3",
-                "$androidTestImplementation_v androidx.test.espresso:espresso-core:3.4.0",
-
         ]
     }
 
+
+    public ArrayList<String> testing() {
+        def coreTestingVersion = '2.1.0'
+        def espressoVersion = '3.4.0'
+        def junitVersion = '4.13.2'
+        def truthVersion = '1.1.3'
+        def testExtJunit = '1.1.3'
+        def uiAutomatorVersion = '2.2.0'
+
+        return [
+                "$androidTestImplementation_v androidx.arch.core:core-testing:$coreTestingVersion",
+                "$androidTestImplementation_v androidx.test.espresso:espresso-contrib:$espressoVersion",
+                "$androidTestImplementation_v androidx.test.espresso:espresso-core:$espressoVersion",
+                "$androidTestImplementation_v androidx.test.espresso:espresso-intents:$espressoVersion",
+                "$androidTestImplementation_v androidx.test.ext:junit:$testExtJunit",
+                "$androidTestImplementation_v androidx.test.uiautomator:uiautomator:$uiAutomatorVersion",
+                "$androidTestImplementation_v com.google.truth:truth:$truthVersion",
+                "$testImplementation_v junit:junit:$junitVersion",
+
+        ]
+    }
 
     public ArrayList<String> lifecycle() {
         def lifecycle_version = "2.4.1"
@@ -148,10 +165,12 @@ class Depends {
                 // Java language implementation
                 "$implementation_v androidx.navigation:navigation-fragment:$nav_version",
                 "$implementation_v androidx.navigation:navigation-ui:$nav_version",
+                "$api_v androidx.navigation:navigation-fragment-ktx:$nav_version",
 
                 // Kotlin
                 "$implementation_v androidx.navigation:navigation-fragment-ktx:$nav_version",
                 "$implementation_v androidx.navigation:navigation-ui-ktx:$nav_version",
+
 
                 // Feature module Support
                 "$implementation_v androidx.navigation:navigation-dynamic-features-fragment:$nav_version",
@@ -193,6 +212,7 @@ class Depends {
 
     public ArrayList<String> recyclerview() {
         return [
+                "$implementation_v androidx.viewpager2:viewpager2:1.0.0",
                 "$implementation_v androidx.recyclerview:recyclerview:1.2.1",
                 // For control over item selection of both touch and mouse driven selection
                 "$implementation_v androidx.recyclerview:recyclerview-selection:1.1.0"
@@ -275,14 +295,15 @@ class Depends {
 
     public ArrayList<String> ktCoroutines() {
         def kt_coroutines = "1.6.1"
-        return [
-//                "$implementation_v org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9", // older
+        //                "$implementation_v org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9", // older
 // https://mvnrepository.com/artifact/org.jetbrains.kotlinx/kotlinx-coroutines-android
-"$runtimeOnly_v org.jetbrains.kotlinx:kotlinx-coroutines-android:$kt_coroutines",
+
+        return [
+                "$runtimeOnly_v org.jetbrains.kotlinx:kotlinx-coroutines-android:$kt_coroutines",
 // https://mvnrepository.com/artifact/org.jetbrains.kotlinx/kotlinx-coroutines-core
-"$implementation_v org.jetbrains.kotlinx:kotlinx-coroutines-core:$kt_coroutines",
+                "$implementation_v org.jetbrains.kotlinx:kotlinx-coroutines-core:$kt_coroutines",
 // https://mvnrepository.com/artifact/org.jetbrains.kotlinx/kotlinx-coroutines-core-jvm
-"$runtimeOnly_v org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:$kt_coroutines"
+                "$runtimeOnly_v org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:$kt_coroutines"
 
 
         ]
@@ -294,6 +315,7 @@ class Depends {
     public ArrayList<String> Kotlin() {
         def kt_version = "1.6.20"
         return [
+                "$implementation_v org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kt_version",
                 // https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-reflect
                 "$runtimeOnly_v org.jetbrains.kotlin:kotlin-reflect:$kt_version",
                 // https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-stdlib
@@ -358,29 +380,49 @@ class Depends {
 
     public ArrayList<String> compose() {
         def compose_version = "1.1.1"
+        def accompanist_version = "0.23.1"
         //implementation "androidx.constraintlayout:constraintlayout:2.1.3" --》init
 
         return [
+                "$implementation_v androidx.activity:activity-compose:1.4.0",
+
                 "$implementation_v androidx.constraintlayout:constraintlayout-compose:1.0.0",
 
                 "$implementation_v androidx.compose.animation:animation:$compose_version",
                 "$implementation_v androidx.compose.animation:animation-graphics:$compose_version",
                 "$implementation_v androidx.compose.animation:animation-core:$compose_version",
+
                 "$implementation_v androidx.compose.material:material:$compose_version",
                 "$implementation_v androidx.compose.material:material-icons-core:$compose_version",
                 "$implementation_v androidx.compose.material:material-icons-extended:$compose_version",
+                "$implementation_v com.google.android.material:compose-theme-adapter:$compose_version",
 
 
                 "$implementation_v androidx.compose.compiler:compiler:$compose_version",
+
+
+
                 "$implementation_v androidx.compose.foundation:foundation:$compose_version",
+                "$implementation_v androidx.compose.foundation:foundation-layout:$compose_version",
+
                 "$implementation_v androidx.compose.runtime:runtime:$compose_version",
+                "$implementation_v androidx.compose.runtime:runtime-livedata:$compose_version",
 
                 "$implementation_v androidx.compose.ui:ui:$compose_version",
                 "$implementation_v androidx.compose.ui:ui-tooling:$compose_version",
+                "$implementation_v androidx.compose.ui:ui-viewbinding:$compose_version",
+
+                "$implementation_v androidx.compose.ui:ui-tooling-preview:$compose_version",
+                "$androidTestImplementation_v androidx.compose.ui:ui-test-junit4:$compose_version",
+
 
                 /*An image loading library for Android backed by Kotlin Coroutines.*/
                 "$implementation_v io.coil-kt:coil-compose:1.4.0",
 
+                // https://mvnrepository.com/artifact/com.google.accompanist/accompanist-insets
+                "$implementation_v com.google.accompanist:accompanist-insets:$accompanist_version",
+// https://mvnrepository.com/artifact/com.google.accompanist/accompanist-flowlayout
+                "$runtimeOnly_v com.google.accompanist:accompanist-flowlayout:$accompanist_version"
 
         ]
     }
