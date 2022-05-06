@@ -29,6 +29,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.eliza.comps.basic.ui.theme.AskcTheme
+import com.google.android.material.chip.Chip
 import kotlin.math.max
 
 val topics = listOf(
@@ -37,6 +38,7 @@ val topics = listOf(
     "Philosophy 13",
     "Religion 14", "Social sciences 15", "Technology 16", "TV 17", "Writing 18"
 )
+
 
 @Composable
 fun LayoutsCodelab() {
@@ -58,6 +60,11 @@ fun LayoutsCodelab() {
     }
 }
 
+/**
+ * Body content
+ * 布局
+ * @param modifier
+ */
 @Composable
 fun BodyContent(modifier: Modifier = Modifier) {
     Row(modifier = modifier
@@ -66,8 +73,14 @@ fun BodyContent(modifier: Modifier = Modifier) {
         .size(600.dp)
         .horizontalScroll(rememberScrollState()),
         content = {
-            StaggeredGrid {
+            //调用并设置网格布局
+            /* * @param modifier
+                 * @param rows 设置列数，默认是3
+                 * @param content*/
+            StaggeredGrid(rows = 4) {
+                //从列表中活获取数据并填充元素
                 for (topic in topics) {
+                    // Chip 单个卡片元素
                     Chip(modifier = Modifier.padding(8.dp), text = topic)
                 }
             }
@@ -76,9 +89,9 @@ fun BodyContent(modifier: Modifier = Modifier) {
 
 /**
  * Staggered grid
- * 先行后列
+ * 先行后列  设置交错网格布局
  * @param modifier
- * @param rows 默认是3
+ * @param rows 设置列数，默认是3
  * @param content
  * @receiver
  */
