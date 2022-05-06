@@ -364,6 +364,11 @@ class Depends {
                 "$implementation_v androidx.compose.animation:animation-core:$compose_version",
                 "$implementation_v androidx.compose.material:material:$compose_version",
                 "$implementation_v androidx.compose.material:material-icons-core:$compose_version",
+                "$implementation_v androidx.compose.material:material-icons-extended:$compose_version",
+
+
+
+
                 "$implementation_v androidx.compose.compiler:compiler:$compose_version",
                 "$implementation_v androidx.compose.foundation:foundation:$compose_version",
                 "$implementation_v androidx.compose.runtime:runtime:$compose_version",
