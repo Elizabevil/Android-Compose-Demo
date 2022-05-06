@@ -416,7 +416,7 @@ class Depends {
                 "$implementation_v androidx.compose.runtime:runtime-livedata:$compose_version",
 
                 "$implementation_v androidx.compose.ui:ui:$compose_version",
-                "$implementation_v androidx.compose.ui:ui-tooling:$compose_version",
+                "$debugImplementation_v androidx.compose.ui:ui-tooling:$compose_version",
                 "$implementation_v androidx.compose.ui:ui-viewbinding:$compose_version",
 
                 "$implementation_v androidx.compose.ui:ui-tooling-preview:$compose_version",

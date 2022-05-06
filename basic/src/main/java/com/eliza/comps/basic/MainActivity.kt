@@ -42,8 +42,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-//                    WellnessScreen()//state
-                    DecoupledConstraintLayout()
+                    WellnessScreen()//state
+//                    DecoupledConstraintLayout()
                 }
             }
         }
