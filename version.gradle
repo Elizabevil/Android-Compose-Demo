@@ -449,6 +449,20 @@ class Depends {
 
     }
 
+    public ArrayList<String> window() {
+        def window_version = "1.0.0"
+        return [
+                // https://mvnrepository.com/artifact/androidx.window/window
+                "$implementation_v androidx.window:window:$window_version",
+                // https://mvnrepository.com/artifact/androidx.window/window-rxjava3
+                "$implementation_v androidx.window:window-rxjava3:$window_version",
+                // https://mvnrepository.com/artifact/androidx.window/window-testing
+                "$implementation_v androidx.window:window-testing:$window_version"
+
+
+        ]
+    }
+
     public ArrayList<String> dagger() {
 /*
 Hilt 是 Android 的依赖项注入库，可减少在项目中执行手动依赖项注入的样板代码。

@@ -117,7 +117,8 @@ dependencies {
 //            dep.recyclerview(),
 
             dep.nav(),
-//            dep.core(),
+            dep.window(),
+            dep.core(),
 //            dep.ImgPicasso(),
 //            dep.ImgGlide(),
 //            dep.okHttp3(),
