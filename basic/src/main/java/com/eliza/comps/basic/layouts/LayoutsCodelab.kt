@@ -149,7 +149,6 @@ fun StaggeredGrid(
         // coerced to the height constraints
         val height = rowHeights.sumOf { it }
             .coerceIn(constraints.minHeight.rangeTo(constraints.maxHeight))
-
         // Y of each row, based on the height accumulation of previous rows
         val rowY = IntArray(rows) { 0 }
         for (i in 1 until rows) {
@@ -170,6 +169,8 @@ fun StaggeredGrid(
                     x = rowX[row],
                     y = rowY[row]
                 )
+                //第一列，x坐标全部为0，下 -一列的x坐标要累加上前面元素的宽度
+                //设置下一列的X坐标，本列x坐标 等于 前面一列的 x坐标 + 其本身
                 rowX[row] += placeable.width
             }
         }
