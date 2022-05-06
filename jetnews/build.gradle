@@ -1,0 +1,160 @@
+plugins {
+    id 'com.android.application'
+
+//    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+}
+
+
+/*
+
+plugins {
+    id 'com.diffplug.spotless' version '5.11.1'
+}
+
+subprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    apply plugin: 'com.diffplug.spotless'
+    spotless {
+        kotlin {
+            target '** /*.kt'
+            targetExclude("$buildDir/** /*.kt")
+            targetExclude('bin/** /*.kt')
+
+            ktlint("0.41.0")
+        licenseHeaderFile rootProject.file('spotless/copyright.kt')
+        }
+    }
+}
+
+*/
+android {
+    compileSdk 32
+
+    defaultConfig {
+        applicationId "com.example.jetnews"
+        minSdk 21
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+/*    signingConfigs {
+        // We use a bundled debug keystore, to allow debug builds from CI to be upgradable
+        debug {
+            storeFile rootProject.file('debug.keystore')
+            storePassword 'android'
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+        }
+    }*/
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.debug
+        }
+
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion compose_version
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+    // Tests can be Robolectric or instrumented tests，测试可以是 Robolectric 或仪器测试
+    sourceSets {
+        String sharedTestDir = 'src/sharedTest/java'
+        test {
+            java.srcDir sharedTestDir
+        }
+        androidTest {
+            java.srcDir sharedTestDir
+        }
+    }
+
+}
+
+
+dependencies {
+//    implementation project(':library')
+
+    def obj = ipp.createObj()
+//    obj.OneForImport(dep.lifecycle())
+
+    obj.ListOfListForImport([
+            dep.initProject(),
+            dep.lifecycle(),
+            dep.Kotlin(),
+            dep.room(),
+            dep.compose(),
+            dep.ktCoroutines(),
+            dep.accompanist(),
+
+//            dep.recyclerview(),
+
+            dep.nav(),
+//            dep.core(),
+//            dep.ImgPicasso(),
+//            dep.ImgGlide(),
+//            dep.okHttp3(),
+//            dep.jsonTools(),
+
+//            dep.camerax(),
+//            dep.paging(),
+    ])
+
+    implementation obj.implementationList
+    testImplementation obj.testImplementationList
+    api obj.apiList
+    kapt obj.kaptList
+    annotationProcessor obj.annotationProcessorList
+    androidTestImplementation obj.androidTestImplementationList
+    debugImplementation obj.debugImplementationList
+    compileOnly obj.compileList
+    runtimeOnly obj.runtimeOnlyList
+//    obj.kspList
+//    obj.logShow(dep.Kotlin())
+//    obj.logShow(obj.runtimeOnlyList())
+}
+
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+    kotlinOptions {
+        // Treat all Kotlin warnings as errors (disabled by default)
+        allWarningsAsErrors = project.hasProperty("warningsAsErrors") ? project.warningsAsErrors : false
+
+        freeCompilerArgs += '-Xopt-in=kotlin.RequiresOptIn'
+        // Enable experimental coroutines APIs, including Flow
+        freeCompilerArgs += '-Xopt-in=kotlin.Experimental'
+
+        // Set JVM target to 1.8
+        jvmTarget = "1.8"
+    }
+}
+
+tasks.withType(Test) {
+    systemProperty "robolectric.logging", "stdout"
+}

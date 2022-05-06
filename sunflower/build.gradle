@@ -83,6 +83,7 @@ dependencies {
             dep.jsonTools(),
             dep.camerax(),
             dep.compose(),
+            dep.accompanist(),
             dep.paging(),
             dep.dagger(),
     ])

@@ -82,6 +82,8 @@ dependencies {
 //            dep.recyclerview(),
 //            dep.room(),
             dep.compose(),
+//            dep.accompanist(),
+
     ])
 
     implementation obj.implementationList

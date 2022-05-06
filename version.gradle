@@ -170,6 +170,8 @@ class Depends {
                 // Kotlin
                 "$implementation_v androidx.navigation:navigation-fragment-ktx:$nav_version",
                 "$implementation_v androidx.navigation:navigation-ui-ktx:$nav_version",
+                // https://mvnrepository.com/artifact/androidx.navigation/navigation-runtime-ktx
+                "$implementation_v androidx.navigation:navigation-runtime-ktx:$nav_version",
 
 
                 // Feature module Support
@@ -421,17 +423,30 @@ class Depends {
 
                 "$implementation_v androidx.compose.ui:ui-tooling-preview:$compose_version",
                 "$androidTestImplementation_v androidx.compose.ui:ui-test-junit4:$compose_version",
+                "$debugImplementation_v androidx.compose.ui:ui-test-manifest:$compose_version",
 
 
                 /*An image loading library for Android backed by Kotlin Coroutines.*/
                 "$implementation_v io.coil-kt:coil-compose:1.4.0",
 
-                // https://mvnrepository.com/artifact/com.google.accompanist/accompanist-insets
-                "$implementation_v com.google.accompanist:accompanist-insets:$accompanist_version",
-// https://mvnrepository.com/artifact/com.google.accompanist/accompanist-flowlayout
-                "$runtimeOnly_v com.google.accompanist:accompanist-flowlayout:$accompanist_version"
 
         ]
+    }
+
+    public ArrayList<String> accompanist() {
+        // https://mvnrepository.com/artifact/org.robolectric/robolectric
+        def accompanist_version = "0.23.1"
+        return [
+                "$testImplementation_v org.robolectric:robolectric:4.8.1",
+
+// https://mvnrepository.com/artifact/com.google.accompanist/accompanist-insets
+                "$implementation_v com.google.accompanist:accompanist-insets:$accompanist_version",
+// https://mvnrepository.com/artifact/com.google.accompanist/accompanist-flowlayout
+                "$runtimeOnly_v com.google.accompanist:accompanist-flowlayout:$accompanist_version",
+                "$implementation_v com.google.accompanist:accompanist-swiperefresh:$accompanist_version",
+                "$implementation_v com.google.accompanist:accompanist-systemuicontroller:$accompanist_version"
+        ]
+
     }
 
     public ArrayList<String> dagger() {
