@@ -163,11 +163,11 @@ createGuidelineFromBottom(fraction: Float)
 看着挺多，其实就是上下左右加上国际化的情况。
  * */
 /**
-Dimension 的属性一共有五种：
-1. preferredWrapContent：布局大小是根据内容所设置，并受布局约束的影响。这个例子中对 Text 右边界做了限制，所以使用这个属性可以控制 Text 右边界只能到达父布局右边界，不能超出屏幕；
-2. wrapContent：Dimension 的默认值，即布局大小只根据内容所设置，不受约束；
-3. fillToConstraints：布局大小将展开填充由布局约束所限制的空间。也就是说，这个属性是先看看布局约束所限制的空间有多大，然后再将该子元素填充到这个有约束的空间中；
-4. preferredValue：布局大小是一个固定值，并受布局约束的影响； 5. value：布局大小是一个固定值，不受约束。
+ *   Dimension 的属性一共有五种：
+ *       1. preferredWrapContent：布局大小是根据内容所设置，并受布局约束的影响。这个例子中对 Text 右边界做了限制，所以使用这个属性可以控制 Text 右边界只能到达父布局右边界，不能超出屏幕；
+ *       2. wrapContent：Dimension 的默认值，即布局大小只根据内容所设置，不受约束；
+ *       3. fillToConstraints：布局大小将展开填充由布局约束所限制的空间。也就是说，这个属性是先看看布局约束所限制的空间有多大，然后再将该子元素填充到这个有约束的空间中；
+ *       4. preferredValue：布局大小是一个固定值，并受布局约束的影响； 5. value：布局大小是一个固定值，不受约束。
 此外，Dimension 还可组合设置布局大小，例如：width = Dimension.preferredWrapContent.atLeast(100.dp) 可设置最小布局大小，同样还有 atMost() 可设置最大布局大小等等。
  * */
 @Composable
