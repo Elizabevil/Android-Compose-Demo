@@ -20,7 +20,7 @@ import com.eliza.comps.basic.ui.theme.AskcTheme
 
 @Composable
 fun TwoTexts(modifier: Modifier = Modifier, text1: String, text2: String) {
-    Row(modifier = modifier.height(IntrinsicSize.Min)) {
+    Row(modifier = modifier.height(IntrinsicSize.Min)) {//容器最小值，刚好包裹内部组件 （warp）
         Text(
             modifier = Modifier
                 .weight(1f)
@@ -28,9 +28,11 @@ fun TwoTexts(modifier: Modifier = Modifier, text1: String, text2: String) {
                 .wrapContentWidth(Alignment.Start),
             text = text1
         )
-        Divider(color = Color.Black, modifier = Modifier
-            .fillMaxHeight()
-            .width(1.dp))
+        Divider(
+            color = Color.Yellow, modifier = Modifier
+                .fillMaxHeight()//(parent)
+                .width(3.dp)
+        )
         Text(
             modifier = Modifier
                 .weight(1f)
