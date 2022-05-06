@@ -54,15 +54,15 @@ fun ConstraintLayoutContent() {
 
 /**
  * Decoupled constraint layout
- * 解耦合
+ * 解耦合--》组件约束关系 在外面定义
  */
 @Composable
 fun DecoupledConstraintLayout() {
     BoxWithConstraints {
         val constraints = if (maxWidth < maxHeight) {
-            decoupledConstraints(margin = 16.dp) // Portrait constraints
+            decoupledConstraints(margin = 1.dp) // 纵向 竖屏Portrait constraints
         } else {
-            decoupledConstraints(margin = 32.dp) // Landscape constraints
+            decoupledConstraints(margin = 200.dp) // Landscape constraints
         }
 
         ConstraintLayout(constraints) {

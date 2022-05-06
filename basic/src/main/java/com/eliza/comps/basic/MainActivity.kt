@@ -26,6 +26,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.eliza.comps.basic.coms.HelloContent
 import com.eliza.comps.basic.activity.BasicsActivity
+import com.eliza.comps.basic.layouts.DecoupledConstraintLayout
 import com.eliza.comps.basic.state.WellnessScreen
 import com.eliza.comps.basic.ui.theme.AskcTheme
 import com.eliza.library.model.Message
@@ -41,7 +42,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    WellnessScreen()//state
+//                    WellnessScreen()//state
+                    DecoupledConstraintLayout()
                 }
             }
         }
