@@ -620,13 +620,13 @@ ext.ipp = ImportPackages
  // 下列所有代码都要; 表示加入 所有类型的依赖
  //runtimeOnly 等方法可以直接导入 数组对象
 
- runtimeOnly obj.compileList
- implementation obj.implementationList
- testImplementation obj.testImplementationList
- api obj.runtimeOnlyList
- kapt obj.annotationProcessorList  //必须启用 id 'kotlin-kapt' 插件
- runtimeOnly obj.androidTestImplementationList
- annotationProcessor obj.apiList
- androidTestImplementation obj.kaptList
+     runtimeOnly obj.compileList
+     implementation obj.implementationList
+     testImplementation obj.testImplementationList
+     api obj.runtimeOnlyList
+     kapt obj.annotationProcessorList  //必须启用 id 'kotlin-kapt' 插件
+     runtimeOnly obj.androidTestImplementationList
+     annotationProcessor obj.apiList
+     androidTestImplementation obj.kaptList
 
  * */
