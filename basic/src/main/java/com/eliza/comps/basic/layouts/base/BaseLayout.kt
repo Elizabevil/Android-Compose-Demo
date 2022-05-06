@@ -1,19 +1,14 @@
-package com.eliza.comps.basic.layouts
+package com.eliza.comps.basic.layouts.base
 
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -98,25 +93,3 @@ private fun PhotographerCardPreview() {
 //    PhotographerCard3()
 }
 
-// code 4
-@Composable
-private fun SurfaceShow() {
-    Surface(
-        shape = RoundedCornerShape(6.dp),
-        border = BorderStroke(0.5.dp, Color.Green),  // 边框
-        elevation = 10.dp,  // 高度
-        modifier = Modifier
-            .padding(10.dp),  // 外边距
-//        color = Color.Black,  // 背景色
-        contentColor = Color.Blue,
-    ) {
-        Surface(
-            modifier = Modifier
-                .clickable { }  // 点击事件在 padding 前，则此padding为内边距
-                .padding(10.dp),
-            contentColor = Color.Magenta  // 会覆盖之前 Surface 设置的 contentColor
-        ) {
-            Text(text = "This is a SurfaceDemo~")
-        }
-    }
-}
