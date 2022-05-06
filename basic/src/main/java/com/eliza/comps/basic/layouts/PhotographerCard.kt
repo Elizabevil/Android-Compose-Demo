@@ -55,7 +55,7 @@ fun PhotographerCard(modifier: Modifier = Modifier) {
 
 @Preview
 @Composable
-fun PhotographerCardPreview() {
+private fun PhotographerCardPreview() {
     AskcTheme {
         PhotographerCard()
     }
