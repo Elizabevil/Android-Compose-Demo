@@ -1,12 +1,13 @@
 package com.eliza.comps.basic.activity
 
 import android.os.Bundle
+import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import com.codelab.layouts.LayoutsCodelab
+import com.eliza.comps.basic.layouts.LayoutsCodelab
 import com.eliza.comps.basic.ui.theme.AskcTheme
 
 
@@ -15,7 +16,8 @@ import com.eliza.comps.basic.ui.theme.AskcTheme
  * @Time    : 5/5/22
  * @Software: Android Studio
  */
-class LayoutActivity : AppCompatActivity() {
+/*You need to use a Theme.AppCompat theme (or descendant) with this activity.*/
+class LayoutsActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {

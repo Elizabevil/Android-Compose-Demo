@@ -62,7 +62,7 @@ fun BodyContent(modifier: Modifier = Modifier) {
     Row(modifier = modifier
         .background(color = Color.LightGray)
         .padding(16.dp)
-        .size(200.dp)
+        .size(600.dp)
         .horizontalScroll(rememberScrollState()),
         content = {
             StaggeredGrid {
@@ -92,6 +92,7 @@ fun StaggeredGrid(
 
         // Don't constrain child views further, measure them with given constraints
         // List of measured children
+//        不要进一步限制子视图，用给定的约束测量它们测量的子视图列表
         val placeables = measurables.mapIndexed { index, measurable ->
             // Measure each child
             val placeable = measurable.measure(constraints)
