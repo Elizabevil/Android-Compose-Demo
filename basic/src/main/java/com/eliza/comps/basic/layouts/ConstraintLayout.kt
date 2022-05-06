@@ -31,7 +31,6 @@ fun ConstraintLayoutContent() {
         Text("Text", Modifier.constrainAs(text) {
             top.linkTo(button.bottom, margin = 16.dp)
         })
-
     }
 }
 
