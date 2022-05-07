@@ -1,8 +1,9 @@
 package com.eliza.comps.basic.state.base
 
-import androidx.compose.foundation.Image
-import androidx.compose.runtime.Composable
-
+import androidx.compose.material.*
+import androidx.compose.runtime.*
+import com.eliza.comps.basic.ui.theme.AskcTheme
+import kotlinx.coroutines.launch
 
 /*
 * 在 Compose 中管理状态
@@ -34,4 +35,26 @@ import androidx.compose.runtime.Composable
 fun Img() {
 //     painterResource(R.drawable.img01),
 
+}
+
+/**
+ * 将可组合项作为可信来源
+ * 如果状态和逻辑比较简单，在可组合项中使用界面逻辑和界面元素状态是一种不错的方法。
+ *      例如，以下是处理 ScaffoldState 和 CoroutineScope 的 MyApp 可组合项：
+ */
+
+@Composable
+private fun MyApp() {
+    AskcTheme() {
+        val scaffoldState = rememberScaffoldState()
+        val coroutineScope = rememberCoroutineScope()
+
+        Scaffold(scaffoldState = scaffoldState) {
+                showSnackbar = { message ->
+                    coroutineScope.launch {
+                        scaffoldState.snackbarHostState.showSnackbar(message)
+                    }
+                }
+        }
+    }
 }

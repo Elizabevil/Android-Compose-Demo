@@ -14,6 +14,10 @@ import androidx.compose.ui.unit.dp
 
 /**
 状态提升
+ * state hoisting
+ *   一个具有高可重用性的compose function应该是stateless的，即不应该在内部包含状态。
+ *   我们应该把状态提到外部去，来提升可重用性
+ *
  *  Compose 中的状态提升是一种将状态移至可组合项的调用方以使可组合项无状态的模式。
  *       一来调用方可以通过状态修改组合项，而不止是组合项自身调用。
  *       二来不同组合项可以复用同个状态。

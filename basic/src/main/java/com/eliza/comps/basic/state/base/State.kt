@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
@@ -30,8 +31,11 @@ mutableStateOf 会创建可观察的 MutableState<T>，后者是与 Compose 运�
  *  由于 Compose 是声明式工具集，因此更新它的唯一方法是通过新参数调用同一可组合项。
  *  这些参数是界面状态的表现形式。每当状态更新时，都会发生重组。
  */
+/*
+莫的反应
+* */
 @Composable
-private fun HelloContent() {
+private fun NoneAction() {
     Column(modifier = Modifier.padding(16.dp)) {
         Text(
             text = "Hello!",
@@ -49,8 +53,32 @@ private fun HelloContent() {
 @Preview
 @Composable
 fun asd() {
-//    HelloContent()
-    HelloContent2()
+//    NoneAction()
+//    NoneAction2()
+    RememberState()
+}
+
+/**
+ * 使用一个变量来代替,但结果不变
+ * 可组合函数改变UI是靠重新发出(recompose)来改变的，
+ *      当state状态改变，就重新发出可组合函数的重新组合，在重新绘制UI来改变UI。
+ *      但是我们的name是一个普通的变量，是不能被compose“记住的
+ * */
+@Composable
+fun NoneAction2() {
+    var name = ""
+    Column(modifier = Modifier.padding(16.dp)) {
+        Text(
+            text = "Hello，$name",
+            modifier = Modifier.padding(bottom = 6.dp),
+            style = MaterialTheme.typography.h5,
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis
+        )
+        OutlinedTextField(value = name, onValueChange = {
+            name = it
+        }, label = { Text(text = "name") })
+    }
 }
 
 /*
@@ -58,13 +86,20 @@ fun asd() {
 * 为此，您必须使用 rememberSaveable。rememberSaveable 会自动保存可保存在 Bundle 中的任何值。
 * 对于其他值，您可以将其传入自定义 Saver 对象。
 * */
+/**
+ * remember可以记住“{}”里面的表达式返回的值，当表达式里面的值改变时，就代表状态改变了，就通知Compose重新绘制。
+ * 若是旋转屏幕，状态会丢失，可以使用rememberSavable来代替remember。
+ */
 @Composable
-private fun HelloContent2() {
+private fun RememberState() {
     Column(modifier = Modifier.padding(16.dp)) {
         /* by 委托
         *           import androidx.compose.runtime.getValue
                     import androidx.compose.runtime.setValue
         * */
+        /**
+         * remember可以记住“{}”里面的表达式返回的值，当表达式里面的值改变时，就代表状态改变了，就通知Compose重新绘制。
+         */
         var name by remember { mutableStateOf("") }
         if (name.isNotEmpty()) {
             Text(
