@@ -60,8 +60,16 @@ import androidx.compose.ui.unit.dp
  *  通过从 HelloContent 中提升出状态，更容易推断该可组合项、在不同的情况下重复使用它，以及进行测试。
  * HelloContent 与状态的存储方式解耦。解耦意味着，如果您修改或替换 HelloScreen，不必更改 HelloContent 的实现方式。
  */
-/*Compose 将 State 对象定义为值容器，而对状态值的更改会触发重组。
-    您可以将状态保存在 remember { mutableStateOf(value) } 或 rememberSaveable { mutableStateOf(value) 中，具体取决于您需要记住值的时长。*/
+/*
+Compose 将 State 对象定义为值容器，而对状态值的更改会触发重组。
+    您可以将状态保存在
+    remember { mutableStateOf(value) } 或
+    rememberSaveable { mutableStateOf(value) 中，具体取决于您需要记住值的时长。
+
+mutableStateOf(value) 会创建一个 MutableState，后者是 Compose 中的可观察类型。如果其值有任何更改，系统会安排重组读取此值的所有可组合函数。
+    remember 会将对象存储在组合中，当调用 remember 的可组合项从组合中移除后，它会忘记该对象。
+    rememberSaveable 通过将状态保存在 Bundle 中来保留状态，使其在配置更改后仍保持不变。
+    */
 @Composable
 private fun HelloScreen() {
     var name by rememberSaveable { mutableStateOf("") }

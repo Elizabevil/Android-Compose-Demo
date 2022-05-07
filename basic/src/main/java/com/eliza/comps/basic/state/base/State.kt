@@ -120,8 +120,8 @@ private fun RememberState() {
  * 然后再使用诸如 LiveData<T>.observeAsState() 之类的可组合扩展函数在可组合项中读取它。
  *
  * 在 Compose 中将可变对象（如 ArrayList<T> 或 mutableListOf()）用作状态会导致用户在您的应用中看到不正确或陈旧的数据。
-不可观察的可变对象（如 ArrayList<T> 或可变数据类）不能由 Compose 观察，因而 Compose 不能在它们发生变化时触发重组。
-我们建议您使用可观察的数据存储器（如 State<List<T>>）和不可变的 listOf()，而不是使用不可观察的可变对象。
+ *      不可观察的可变对象（如 ArrayList<T> 或可变数据类）不能由 Compose 观察，因而 Compose 不能在它们发生变化时触发重组。
+ *      我们建议您使用可观察的数据存储器（如 State<List<T>>）和不可变的 listOf()，而不是使用不可观察的可变对象。
  */
 /*
 
