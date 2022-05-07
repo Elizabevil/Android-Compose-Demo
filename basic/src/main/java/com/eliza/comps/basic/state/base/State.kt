@@ -52,6 +52,7 @@ fun asd() {
 //    HelloContent()
     HelloContent2()
 }
+
 /*
 * 虽然 remember 可帮助您在重组后保持状态，但不会帮助您在配置更改后保持状态。
 * 为此，您必须使用 rememberSaveable。rememberSaveable 会自动保存可保存在 Bundle 中的任何值。
@@ -84,6 +85,22 @@ private fun HelloContent2() {
  * 然后再使用诸如 LiveData<T>.observeAsState() 之类的可组合扩展函数在可组合项中读取它。
  *
  * 在 Compose 中将可变对象（如 ArrayList<T> 或 mutableListOf()）用作状态会导致用户在您的应用中看到不正确或陈旧的数据。
-    不可观察的可变对象（如 ArrayList<T> 或可变数据类）不能由 Compose 观察，因而 Compose 不能在它们发生变化时触发重组。
-        我们建议您使用可观察的数据存储器（如 State<List<T>>）和不可变的 listOf()，而不是使用不可观察的可变对象。
+不可观察的可变对象（如 ArrayList<T> 或可变数据类）不能由 Compose 观察，因而 Compose 不能在它们发生变化时触发重组。
+我们建议您使用可观察的数据存储器（如 State<List<T>>）和不可变的 listOf()，而不是使用不可观察的可变对象。
  */
+/*
+
+除了``MutableState来存储状态，我们也可以使用我们熟悉的LiveData,Flow,RxJava`。
+
+observeAsState函数是LiveData的扩展函数，将LiveData对象转化成State对象。
+    val liveData= MutableLiveData<String>()
+    val text by liveData.observeAsState()
+* Flow
+    * val value: String by stateFlow.collectAsState()
+* RxJava
+    val completed by completable.subscribeAsState()
+
+*Compose通过扩展函数，将已有框架的可观察类转化成State<T>对象，并由可组合函数读取，
+可以通过扩展函数将自己的可观察类转化成State<T>对象。
+    如果需要手动触发重组，例如在从服务器获取数据的情况下，通过使用currentRecomposeScope.invalidate()。
+* */
