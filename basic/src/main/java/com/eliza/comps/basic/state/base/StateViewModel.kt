@@ -20,6 +20,14 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.eliza.comps.library.tools.InfoTools
 
+/*Compose 中的事件
+    应用的每项输入都应表示为事件：点按、文本更改，甚至计时器或其他更新。当这些事件更改界面的状态时，ViewModel 应负责处理这些事件并更新界面状态。
+    界面层绝不应更改事件处理脚本之外的状态，因为这样做可能会导致应用出现不一致和 bug。
+        最好为状态和事件处理脚本 lambda 传递不可变值。此方法具有以下优势：
+            提升可重用性。
+            确保您的界面不会直接更改状态的值。
+            避免并发问题，因为您可确保不会从其他线程修改状态。
+            通常情况下，还可以降低代码的复杂性。*/
 
 class StateViewModel : ComponentActivity() {
     private val helloViewModel: HelloViewModel by viewModels()//初始化viewmodel,否则旋转屏幕无法保存状态
