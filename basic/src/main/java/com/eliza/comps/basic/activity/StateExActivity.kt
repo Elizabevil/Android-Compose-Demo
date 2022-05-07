@@ -16,7 +16,7 @@ import com.eliza.comps.basic.ui.theme.AskcTheme
  * @Time    : 5/5/22
  * @Software: Android Studio
  */
-class StateActivity : ComponentActivity() {
+class StateExActivity : ComponentActivity() {
     private val context = this
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -17,7 +17,7 @@ import com.eliza.comps.basic.ui.theme.AskcTheme
  * @Software: Android Studio
  */
 /*You need to use a Theme.AppCompat theme (or descendant) with this activity.*/
-class LayoutsActivity : ComponentActivity() {
+class LayoutsExActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
