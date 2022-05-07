@@ -12,6 +12,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
+/*
+* 单向数据流 https://developer.android.google.cn/jetpack/compose/architecture?hl=zh-cn
+    单向数据流 (UDF) 是一种设计模式，在该模式下状态向下流动，事件向上流动。
+    * 通过采用单向数据流，您可以将在界面中显示状态的可组合项与应用中存储和更改状态的部分分离开来。
+    * 使用单向数据流的应用的界面更新循环如下所示：
+        事件：界面的某一部分生成一个事件，并将其向上传递，例如将按钮点击传递给 ViewModel 进行处理；或者从应用的其他层传递事件，如指示用户会话已过期。
+        更新状态：事件处理脚本可能会更改状态。
+        显示状态：状态容器向下传递状态，界面显示此状态。
+* */
 /**
 状态提升
  * state hoisting
