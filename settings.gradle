@@ -34,9 +34,9 @@ dependencyResolutionManagement {
 rootProject.name = "Askc"
 include ':app'
 include ':library'
-//include ':aa'
 include ':basic'
 include ':sunflower'
 include ':sunflower-compose'
 include ':animation'
 include ':jetnews'
+include ':nav'
