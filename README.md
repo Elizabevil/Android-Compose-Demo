@@ -6,7 +6,7 @@ Askc Android Compose笔记及案例
 #### 软件架构
 软件架构说明
 
-
+https://github.com/Elizabevil/Askc.git
 #### 安装教程
 
 1.  rootProject.name = "Askc"
@@ -17,6 +17,7 @@ Askc Android Compose笔记及案例
     include ':sunflower'
     include ':sunflower-compose'
     include ':animation'
+    include ':jetnews'
     include ':jetnews'
 
 #### 使用说明
