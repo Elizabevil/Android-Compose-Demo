@@ -33,8 +33,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".state.base.MainActivity" />
-        <activity android:name=".state.base.StateViewModel" />
+        <activity
+                android:name=".state.base.StateViewModel"
+                android:exported="true"
+                android:label="StateViewModel"
+                android:theme="@style/Theme.Askc">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
     </application>
 
 </manifest>
