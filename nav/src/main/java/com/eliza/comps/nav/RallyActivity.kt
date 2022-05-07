@@ -32,6 +32,7 @@ import com.eliza.comps.nav.ui.components.RallyTabRow
 import com.eliza.comps.nav.ui.theme.RallyTheme
 
 /**
+ * https://m3.material.io/
  * This Activity recreates part of the Rally Material Study from
  * https://material.io/design/material-studies/rally.html
  */
