@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.compose.rally
+package com.eliza.comps.nav.rally
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory

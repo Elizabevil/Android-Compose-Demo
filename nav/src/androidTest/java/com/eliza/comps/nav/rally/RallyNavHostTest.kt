@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.compose.rally
+package com.eliza.comps.nav.rally
 
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
@@ -23,8 +23,6 @@ import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollTo
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.eliza.comps.nav.rally.RallyNavHost
-import com.eliza.comps.nav.rally.RallyScreen
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext

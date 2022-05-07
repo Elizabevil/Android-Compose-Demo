@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.compose.rally
+package com.eliza.comps.nav.rally
 
 import android.os.Build
 import androidx.compose.foundation.background
