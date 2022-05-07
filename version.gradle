@@ -476,12 +476,12 @@ Hilt 是 Android 的依赖项注入库，可减少在项目中执行手动依赖
 
         return [
                 "$implementation_v com.google.dagger:hilt-android:$hilt_version",
-
+                // https://mvnrepository.com/artifact/com.google.dagger/hilt-android
+                "$runtimeOnly_v com.google.dagger:hilt-android:$hilt_version",
                 "$kapt_v com.google.dagger:hilt-android-compiler:$hilt_version",
                 // https://mvnrepository.com/artifact/com.google.dagger/dagger-android
                 "$implementation_v com.google.dagger:dagger-android:2.41",
-// https://mvnrepository.com/artifact/com.google.dagger/hilt-android
-                "$runtimeOnly_v com.google.dagger:hilt-android:2.41"
+
 
         ]
     }
@@ -606,34 +606,24 @@ ext.ipp = ImportPackages
 
  1: 在项目 build.gradle 最顶层加入 下列代码，表示启用该 脚本
 
-     buildscript {apply from: 'version.gradle'}
+ buildscript {apply from: 'version.gradle'}2: 每个模块中 build.gradle --》 plugins 加入/替换 如下代码，表 开启插件
+ plugins {id 'com.android.application'
+ id 'org.jetbrains.kotlin.android'
+ id 'kotlin-kapt'}3: 每个模块中 build.gradle --》 dependencies 中加入 代码{def obj = ipp.createObj() //获取脚本中的 对象
+ obj.ListOfListForImport([   //添加需要导入的包
+ dep.lifecycle(),  //方法发的返回值 是 依赖数组
+ dep.nav(),
+ ])
+ // obj.logShow(obj.compileList)  查看 某种包的内容
 
- 2: 每个模块中 build.gradle --》 plugins 加入/替换 如下代码，表 开启插件
- plugins {
-     id 'com.android.application'
-     id 'org.jetbrains.kotlin.android'
-     id 'kotlin-kapt'
- }
+ // 下列所有代码都要; 表示加入 所有类型的依赖
+ //runtimeOnly 等方法可以直接导入 数组对象
 
- 3: 每个模块中 build.gradle --》 dependencies 中加入 代码
- {
-     def obj = ipp.createObj() //获取脚本中的 对象
-     obj.ListOfListForImport([   //添加需要导入的包
-     dep.lifecycle(),  //方法发的返回值 是 依赖数组
-     dep.nav(),
-     ])
-     // obj.logShow(obj.compileList)  查看 某种包的内容
-
-     // 下列所有代码都要; 表示加入 所有类型的依赖
-     //runtimeOnly 等方法可以直接导入 数组对象
-
-     runtimeOnly obj.compileList
-     implementation obj.implementationList
-     testImplementation obj.testImplementationList
-     api obj.runtimeOnlyList
-     kapt obj.annotationProcessorList  //必须启用 id 'kotlin-kapt' 插件
-     runtimeOnly obj.androidTestImplementationList
-     annotationProcessor obj.apiList
-     androidTestImplementation obj.kaptList
- }
- * */
+ runtimeOnly obj.compileList
+ implementation obj.implementationList
+ testImplementation obj.testImplementationList
+ api obj.runtimeOnlyList
+ kapt obj.annotationProcessorList  //必须启用 id 'kotlin-kapt' 插件
+ runtimeOnly obj.androidTestImplementationList
+ annotationProcessor obj.apiList
+ androidTestImplementation obj.kaptList}* */
