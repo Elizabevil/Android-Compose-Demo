@@ -52,7 +52,7 @@ private fun NoneAction() {
 
 @Preview
 @Composable
-private fun showPreview() {
+private fun ShowPreview() {
 //    NoneAction()
 //    NoneAction2()
     RememberState()
