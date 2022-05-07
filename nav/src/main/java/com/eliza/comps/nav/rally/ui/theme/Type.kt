@@ -23,7 +23,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
-import com.example.compose.rally.R
+import com.eliza.comps.nav.R
 
 private val EczarFontFamily = FontFamily(
     Font(R.font.eczar_regular),

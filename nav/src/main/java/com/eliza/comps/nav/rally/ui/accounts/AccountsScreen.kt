@@ -22,7 +22,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
-import com.example.compose.rally.R
+import com.eliza.comps.nav.R
 import com.eliza.comps.nav.rally.data.Account
 import com.eliza.comps.nav.rally.ui.components.AccountRow
 import com.eliza.comps.nav.rally.ui.components.StatementBody
