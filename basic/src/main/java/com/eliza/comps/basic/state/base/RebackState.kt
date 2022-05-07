@@ -32,7 +32,7 @@ import androidx.compose.ui.unit.dp
 data class City(val name: String, val country: String) : Parcelable
 
 @Composable
-fun CityScreenParcelize() {
+private fun CityScreenParcelize() {
     var selectedCity = rememberSaveable {
         mutableStateOf(City("Madrid", "Spain"))
     }
@@ -40,7 +40,7 @@ fun CityScreenParcelize() {
 
 @Preview
 @Composable
-fun CityScreenParcelizePreview() {
+private fun CityScreenParcelizePreview() {
     CityScreenParcelize()
 }
 
@@ -49,7 +49,7 @@ fun CityScreenParcelizePreview() {
 如果某种原因导致 @Parcelize 不合适，您可以使用 mapSaver 定义自己的规则，规定如何将对象转换为系统可保存到 Bundle 的一组值。
  */
 
-val CitySaverMapSaver = run {
+private val CitySaverMapSaver = run {
     val nameKey = "Name"
     val countryKey = "Country"
     mapSaver(
@@ -59,7 +59,7 @@ val CitySaverMapSaver = run {
 }
 
 @Composable
-fun CityScreenMapSaver() {
+private fun CityScreenMapSaver() {
     var selectedCity = rememberSaveable(stateSaver = CitySaverMapSaver) {
         mutableStateOf(City("Madrid", "Spain"))
     }
@@ -67,7 +67,7 @@ fun CityScreenMapSaver() {
 
 @Preview
 @Composable
-fun CityScreenMapSaverPreview() {
+private fun CityScreenMapSaverPreview() {
     CityScreenMapSaver()
 }
 
@@ -77,13 +77,13 @@ fun CityScreenMapSaverPreview() {
  */
 
 
-val ListSaver = listSaver<City, Any>(
+private val ListSaver = listSaver<City, Any>(
     save = { listOf(it.name, it.country) },
     restore = { City(it[0] as String, it[1] as String) }
 )
 
 @Composable
-fun CityScreenListSaver() {
+private fun CityScreenListSaver() {
     var selectedCity = rememberSaveable(stateSaver = ListSaver) {
         mutableStateOf(City("Madrid", "Spain"))
     }
@@ -91,6 +91,6 @@ fun CityScreenListSaver() {
 
 @Preview
 @Composable
-fun CityScreenListSaverPreview() {
+private fun CityScreenListSaverPreview() {
     CityScreenListSaver()
 }
