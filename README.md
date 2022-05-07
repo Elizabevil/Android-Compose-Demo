@@ -7,6 +7,7 @@ Askc Android Compose笔记及案例
 软件架构说明
 
 https://github.com/Elizabevil/Askc.git
+https://github.com/Elizabevil/Askc.git
 #### 安装教程
 
 1.  rootProject.name = "Askc"
