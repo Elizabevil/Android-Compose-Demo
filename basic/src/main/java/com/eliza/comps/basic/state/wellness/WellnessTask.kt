@@ -1,4 +1,4 @@
-package com.eliza.comps.basic.state
+package com.eliza.comps.basic.state.wellness
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf

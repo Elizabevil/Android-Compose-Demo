@@ -7,7 +7,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
-import com.eliza.comps.basic.state.WellnessScreen
+import com.eliza.comps.basic.state.wellness.WellnessScreen
 import com.eliza.comps.basic.ui.theme.AskcTheme
 
 class MainActivity : ComponentActivity() {

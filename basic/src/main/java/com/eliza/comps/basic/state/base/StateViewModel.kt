@@ -46,7 +46,7 @@ class StateViewModel : ComponentActivity() {
  *         而 mutableStateOf 返回的是 MutableState，可以修改其值。
  *         fun <T : Any?> mutableStateOf(value: T, policy: SnapshotMutationPolicy<T> = structuralEqualityPolicy()): MutableState<T>
  * MutableLiveData
- *    ViewModel 定义 MutableLiveData 来实现可变更的 LiveData。 这样就能在 Composable 中通过 ViewModel 对外开发的函数来修改 LiveData。
+ *          ViewModel 定义 MutableLiveData 来实现可变更的 LiveData。 这样就能在 Composable 中通过 ViewModel 对外开发的函数来修改 LiveData。
  * */
 @Composable
 private fun HelloScreen(helloViewModel: HelloViewModel = HelloViewModel()) {

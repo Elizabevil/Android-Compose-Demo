@@ -1,5 +1,5 @@
 
-package com.eliza.comps.basic.state
+package com.eliza.comps.basic.state.wellness
 
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items

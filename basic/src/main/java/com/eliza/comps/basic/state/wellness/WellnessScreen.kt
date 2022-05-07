@@ -1,4 +1,4 @@
-package com.eliza.comps.basic.state
+package com.eliza.comps.basic.state.wellness
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable

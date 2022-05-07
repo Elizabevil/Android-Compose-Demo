@@ -11,7 +11,7 @@ import androidx.compose.ui.unit.dp
 
 /*
 https://developer.android.google.cn/jetpack/compose/state?hl=zh-cn
-
+https://developer.android.google.cn/jetpack/compose/architecture?hl=zh-cn
 
 mutableStateOf 会创建可观察的 MutableState<T>，后者是与 Compose 运行时集成的可观察类型。
     interface MutableState<T> : State<T> {
@@ -52,7 +52,7 @@ private fun NoneAction() {
 
 @Preview
 @Composable
-private fun asd() {
+private fun showPreview() {
 //    NoneAction()
 //    NoneAction2()
     RememberState()

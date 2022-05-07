@@ -1,5 +1,5 @@
 
-package com.eliza.comps.basic.state
+package com.eliza.comps.basic.state.wellness
 
 import androidx.compose.runtime.toMutableStateList
 import androidx.lifecycle.ViewModel
