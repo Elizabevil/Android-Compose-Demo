@@ -1,12 +1,10 @@
-package com.eliza.library.tools.file
+package com.eliza.comps.library.tools.file
 
 import android.content.Context
 import android.content.res.AssetManager
-import com.eliza.library.tools.InfoTools
-import java.io.BufferedReader
+import com.eliza.comps.library.tools.InfoTools
 import java.io.File
 import java.io.InputStream
-import java.io.InputStreamReader
 
 
 /**

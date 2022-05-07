@@ -1,4 +1,4 @@
-package com.eliza.library
+package com.eliza.comps.library
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

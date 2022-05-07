@@ -1,4 +1,4 @@
-package com.eliza.library.model
+package com.eliza.comps.library.model
 
 /*-*- coding:utf-8 -*-
  * @Author  : debi

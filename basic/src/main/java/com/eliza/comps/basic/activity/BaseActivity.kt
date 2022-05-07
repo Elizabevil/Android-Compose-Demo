@@ -26,7 +26,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.eliza.comps.basic.R
 import com.eliza.comps.basic.ui.theme.AskcTheme
-import com.eliza.library.model.Message
+import com.eliza.comps.library.model.Message
 
 
 /*-*- coding:utf-8 -*-

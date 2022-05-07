@@ -1,4 +1,4 @@
-package com.eliza.library
+package com.eliza.comps.library
 
 import org.junit.Test
 

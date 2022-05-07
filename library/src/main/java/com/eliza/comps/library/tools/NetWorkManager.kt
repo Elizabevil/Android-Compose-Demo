@@ -1,4 +1,4 @@
-package com.eliza.library.tools
+package com.eliza.comps.library.tools
 
 import android.Manifest
 import android.content.Context
