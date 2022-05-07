@@ -25,7 +25,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.eliza.comps.basic.R
-import com.eliza.comps.basic.coms.HelloContent
 import com.eliza.comps.basic.ui.theme.AskcTheme
 import com.eliza.library.model.Message
 
