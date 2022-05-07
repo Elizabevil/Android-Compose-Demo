@@ -29,7 +29,7 @@ import com.eliza.comps.library.tools.InfoTools
             避免并发问题，因为您可确保不会从其他线程修改状态。
             通常情况下，还可以降低代码的复杂性。*/
 
-class StateViewModel : ComponentActivity() {
+class StateViewModelActivity : ComponentActivity() {
     private val helloViewModel: HelloViewModel by viewModels()//初始化viewmodel,否则旋转屏幕无法保存状态
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -34,7 +34,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".state.base.StateViewModel"
+                android:name=".state.base.StateViewModelActivity"
                 android:exported="true"
                 android:label="StateViewModel"
                 android:theme="@style/Theme.Askc">
