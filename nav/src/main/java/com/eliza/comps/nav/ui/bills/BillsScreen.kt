@@ -21,7 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.contentDescription
-import com.example.compose.rally.R
+import com.eliza.comps.nav.R
 import com.eliza.comps.nav.data.Bill
 import com.eliza.comps.nav.ui.components.BillRow
 import com.eliza.comps.nav.ui.components.StatementBody

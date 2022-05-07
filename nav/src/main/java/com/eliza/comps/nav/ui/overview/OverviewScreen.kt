@@ -49,7 +49,7 @@ import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
-import com.example.compose.rally.R
+import com.eliza.comps.nav.R
 import com.eliza.comps.nav.data.UserData
 import com.eliza.comps.nav.ui.components.AccountRow
 import com.eliza.comps.nav.ui.components.BillRow
