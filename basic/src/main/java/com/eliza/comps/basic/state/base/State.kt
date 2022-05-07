@@ -52,7 +52,7 @@ private fun NoneAction() {
 
 @Preview
 @Composable
-fun asd() {
+private fun asd() {
 //    NoneAction()
 //    NoneAction2()
     RememberState()
@@ -65,7 +65,7 @@ fun asd() {
  *      但是我们的name是一个普通的变量，是不能被compose“记住的
  * */
 @Composable
-fun NoneAction2() {
+private fun NoneAction2() {
     var name = ""
     Column(modifier = Modifier.padding(16.dp)) {
         Text(

@@ -43,18 +43,3 @@ fun Img() {
  *      例如，以下是处理 ScaffoldState 和 CoroutineScope 的 MyApp 可组合项：
  */
 
-@Composable
-private fun MyApp() {
-    AskcTheme() {
-        val scaffoldState = rememberScaffoldState()
-        val coroutineScope = rememberCoroutineScope()
-
-        Scaffold(scaffoldState = scaffoldState) {
-                showSnackbar = { message ->
-                    coroutineScope.launch {
-                        scaffoldState.snackbarHostState.showSnackbar(message)
-                    }
-                }
-        }
-    }
-}
