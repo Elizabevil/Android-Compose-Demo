@@ -37,7 +37,7 @@ private fun Pre() {
     }
     materialUI(value = value, onValueChange = { newValue ->
         // 必须手动赋值
-//        value = newValue
+        value = newValue
     })
 }
 
