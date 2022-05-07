@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
+//    https://developer.android.google.cn/kotlin/parcelize?hl=zh-cn
     id 'kotlin-parcelize'
 }
 
