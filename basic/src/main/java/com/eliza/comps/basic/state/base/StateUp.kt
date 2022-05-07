@@ -17,9 +17,13 @@ import androidx.compose.ui.unit.dp
     单向数据流 (UDF) 是一种设计模式，在该模式下状态向下流动，事件向上流动。
     * 通过采用单向数据流，您可以将在界面中显示状态的可组合项与应用中存储和更改状态的部分分离开来。
     * 使用单向数据流的应用的界面更新循环如下所示：
-        事件：界面的某一部分生成一个事件，并将其向上传递，例如将按钮点击传递给 ViewModel 进行处理；或者从应用的其他层传递事件，如指示用户会话已过期。
-        更新状态：事件处理脚本可能会更改状态。
-        显示状态：状态容器向下传递状态，界面显示此状态。
+            事件：界面的某一部分生成一个事件，并将其向上传递，例如将按钮点击传递给 ViewModel 进行处理；或者从应用的其他层传递事件，如指示用户会话已过期。
+            更新状态：事件处理脚本可能会更改状态。
+            显示状态：状态容器向下传递状态，界面显示此状态。
+    * 使用 Jetpack Compose 时遵循此模式可带来下面几项优势：
+            可测试性：将状态与显示状态的界面分离开来，更方便单独对二者进行测试。
+            状态封装：因为状态只能在一个位置进行更新，并且可组合项的状态只有一个可信来源，所以不太可能由于状态不一致而出现 bug。
+            界面一致性：通过使用可观察的状态容器，例如 LiveData 或 StateFlow，所有状态更新都会立即反映在界面中。
 * */
 /**
 状态提升
@@ -33,7 +37,7 @@ import androidx.compose.ui.unit.dp
  *  Jetpack Compose 中的常规状态提升模式是将状态变量替换为两个参数：
  *      value: T：要显示的当前值
  *      onValueChange: (T) -> Unit：请求更改值的事件，其中 T 是建议的新值
- *      ·并不局限于 onValueChange。如果更具体的事件适合可组合项，您应使用 lambda 定义这些事件，就像使用 onExpand 和 onCollapse 定义适合 ExpandingCard 的事件一样。
+ *      并不局限于 onValueChange。如果更具体的事件适合可组合项，您应使用 lambda 定义这些事件，就像使用 onExpand 和 onCollapse 定义适合 ExpandingCard 的事件一样。
  *
  * * 状态应至少提升到使用该状态（读取）的所有可组合项的最低共同父项。
  * * 状态应至少提升到它可以发生变化（写入）的最高级别。
@@ -46,11 +50,7 @@ import androidx.compose.ui.unit.dp
     可拦截：无状态可组合项的调用方可以在更改状态之前决定忽略或修改事件。
     解耦：无状态 ExpandingCard 的状态可以存储在任何位置。例如，现在可以将 name 移入 ViewModel。
 * */
-@Preview
-@Composable
-private fun HelloScreenPreview() {
-    HelloScreen()
-}
+
 /*
 状态下降、事件上升的这种模式称为“单向数据流”。
     在这种情况下，状态会从 HelloScreen 下降为 HelloContent，事件会从 HelloContent 上升为 HelloScreen。
@@ -60,6 +60,8 @@ private fun HelloScreenPreview() {
  *  通过从 HelloContent 中提升出状态，更容易推断该可组合项、在不同的情况下重复使用它，以及进行测试。
  * HelloContent 与状态的存储方式解耦。解耦意味着，如果您修改或替换 HelloScreen，不必更改 HelloContent 的实现方式。
  */
+/*Compose 将 State 对象定义为值容器，而对状态值的更改会触发重组。
+    您可以将状态保存在 remember { mutableStateOf(value) } 或 rememberSaveable { mutableStateOf(value) 中，具体取决于您需要记住值的时长。*/
 @Composable
 private fun HelloScreen() {
     var name by rememberSaveable { mutableStateOf("") }
@@ -88,4 +90,11 @@ private fun HelloContent(name: String, onNameChange: (String) -> Unit) {
             label = { Text("Name") }
         )
     }
+}
+
+
+@Preview
+@Composable
+private fun HelloScreenPreview() {
+    HelloScreen()
 }
