@@ -29,7 +29,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.unit.dp
-import com.example.compose.rally.ui.theme.RallyDialogThemeOverlay
+import com.eliza.comps.nav.ui.theme.RallyDialogThemeOverlay
 
 @Composable
 fun RallyAlertDialog(

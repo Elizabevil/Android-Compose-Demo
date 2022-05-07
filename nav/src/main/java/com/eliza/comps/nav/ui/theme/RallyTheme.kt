@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.compose.rally.ui.theme
+package com.eliza.comps.nav.ui.theme
 
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Typography

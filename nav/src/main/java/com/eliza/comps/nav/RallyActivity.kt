@@ -29,7 +29,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import com.eliza.comps.nav.ui.components.RallyTabRow
-import com.example.compose.rally.ui.theme.RallyTheme
+import com.eliza.comps.nav.ui.theme.RallyTheme
 
 /**
  * This Activity recreates part of the Rally Material Study from
