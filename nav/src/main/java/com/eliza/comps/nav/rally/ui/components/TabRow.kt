@@ -33,6 +33,8 @@ import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.PieChart
 import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -43,6 +45,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.eliza.comps.nav.rally.RallyScreen
@@ -70,6 +73,12 @@ fun RallyTabRow(
             }
         }
     }
+}
+
+//@Preview
+@Composable
+private fun RallyTabPreview() {
+    RallyTab("text", Icons.Filled.PieChart, fun() {}, false)
 }
 
 @Composable
@@ -120,7 +129,6 @@ private fun RallyTab(
 
 private val TabHeight = 56.dp
 private const val InactiveTabOpacity = 0.60f
-
 private const val TabFadeInAnimationDuration = 150
 private const val TabFadeInAnimationDelay = 100
 private const val TabFadeOutAnimationDuration = 100
